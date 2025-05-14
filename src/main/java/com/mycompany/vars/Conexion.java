@@ -12,9 +12,9 @@ public class Conexion {
     //el static connecction no es necesario para la conexion basica
     static Connection contacto=null;
     Connection con;
-    String url="jdbc:mysql://localhost:3306/vars2";
-    String user="root";
-    String pass="";
+    String url="jdbc:mysql://10.119.76.169:3306/vars2";
+    String user="remote_user";
+    String pass="contrasenia";
     
    
     public Connection Conectar(){
@@ -28,7 +28,7 @@ public class Conexion {
       //este public connection no es necesario para la conexion basica
     }
     public static Connection getConexion(){
-    String url="jdbc:mysql://localhost:3306/vars";
+    String url="jdbc:mysql://10.119.76.169:3306/vars2";
     
     try{
      Class.forName("com.mysql.cj.jdbc.Driver");

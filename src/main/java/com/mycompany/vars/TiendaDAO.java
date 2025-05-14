@@ -158,12 +158,13 @@ public class TiendaDAO {
   public void modificar_empleado (String Nombre,String Permisos,String Usuario,String Contrasena) {
     String sql = "UPDATE personal SET nombre=?, permisos=?, contrasena=? WHERE usuario = ?";
       System.out.println(Usuario);
+      String hashedContra = encoder.encode(Contrasena);
     try {
     con = acceso.Conectar();
     ps = con.prepareStatement(sql); 
     ps.setString(1,Nombre);
      ps.setString(2,Permisos);
-     ps.setString(3,Contrasena);
+     ps.setString(3,hashedContra);
      ps.setString(4, Usuario);
      ps.executeUpdate();
     }catch (Exception e) {

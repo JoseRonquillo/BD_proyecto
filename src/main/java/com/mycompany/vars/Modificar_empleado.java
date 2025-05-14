@@ -204,7 +204,6 @@ public class Modificar_empleado extends javax.swing.JPanel {
     public void mostrar (String Nombre, String Permisos, String Usuario, String Contrasena){ 
         txtNombre.setText(Nombre+"");
         txtUsuario.setText(Usuario+"");
-        txtContrasena.setText(Contrasena+"");
         } 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
