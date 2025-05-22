@@ -8,26 +8,28 @@ import java.sql.Date;
 
 
 public class Venta {
+    
+    private Integer id_venta;
     private String fecha;
-    private String productos;
     private float total;
     private String cliente;
     private String recivo;
+    private Integer vendedor;
 
+    public Integer getId_venta() {
+        return id_venta;
+    }
+
+    public void setId_venta(Integer id_venta) {
+        this.id_venta = id_venta;
+    }
+    
     public String getFecha() {
         return fecha;
     }
 
     public void setFecha(String fecha) {
         this.fecha = fecha;
-    }
-
-    public String getProductos() {
-        return productos;
-    }
-
-    public void setProductos(String productos) {
-        this.productos = productos;
     }
 
     public float getTotal() {
@@ -52,6 +54,14 @@ public class Venta {
 
     public void setRecivo(String recivo) {
         this.recivo = recivo;
+    }
+
+    public Integer getVendedor() {
+        return vendedor;
+    }
+
+    public void setVendedor(Integer vendedor) {
+        this.vendedor = vendedor;
     }
     
     

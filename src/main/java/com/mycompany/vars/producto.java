@@ -11,10 +11,9 @@ package com.mycompany.vars;
 public class producto {
     private String Codigo;
     private String Nombre;
-    private int Cantidad;
     private float Precio;
     private String Descripcion;
-    private int Lote;
+    private int Cantidad;
 
     public String getCodigo() {
         return Codigo;
@@ -40,14 +39,6 @@ public class producto {
         this.Nombre = Nombre;
     }
 
-    public int getCantidad() {
-        return Cantidad;
-    }
-
-    public void setCantidad(int Cantidad) {
-        this.Cantidad = Cantidad;
-    }
-
     public String getDescripcion() {
         return Descripcion;
     }
@@ -56,12 +47,14 @@ public class producto {
         this.Descripcion = Descripcion;
     }
 
-    public int getLote() {
-        return Lote;
+    public int getCantidad() {
+        return Cantidad;
     }
 
-    public void setLote(int Lote) {
-        this.Lote = Lote;
+    public void setCantidad(int Cantidad) {
+        this.Cantidad = Cantidad;
     }
+    
+    
     
 }

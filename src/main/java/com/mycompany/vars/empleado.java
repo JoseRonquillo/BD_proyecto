@@ -7,10 +7,19 @@ package com.mycompany.vars;
 
 public class empleado {
     
+    private int id_personal;
     private String Nombre;
     private String Permisos;
     private String Usuario;
     private String Contrasena;
+
+    public int getId_personal() {
+        return id_personal;
+    }
+
+    public void setId_personal(int id_personal) {
+        this.id_personal = id_personal;
+    }
     
     public String getNombre() {
         return Nombre;

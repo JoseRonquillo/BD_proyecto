@@ -8,20 +8,19 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
-import java.util.Random;
 
 /**
  *
  * @author chatman
  */
-public class Agregar extends javax.swing.JPanel {
+public class Crear_lote extends javax.swing.JPanel {
 
     JPanel panel_general;
     
-    public Agregar(JPanel panel_general) {
+    public Crear_lote(JPanel panel_general) {
         initComponents();
         this.panel_general = panel_general;
-        generar_codigo();
+     
     }
 
     /**
@@ -35,7 +34,8 @@ public class Agregar extends javax.swing.JPanel {
 
         jLabel2 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        txtDescripcion = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txtCantidad = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtPrecio = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
@@ -45,11 +45,12 @@ public class Agregar extends javax.swing.JPanel {
         txtCodigo = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        txtCaducidad = new com.toedter.calendar.JDateChooser();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setText("Descripcion:");
+        jLabel2.setText("Fecha de caducidad:");
 
         jButton2.setBackground(new java.awt.Color(9, 67, 105));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -62,19 +63,23 @@ public class Agregar extends javax.swing.JPanel {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setText("Cantidad:");
+
         Color cl = new Color(13,177,215);
-        txtDescripcion.setBorder(BorderFactory.createMatteBorder(0,0,1,0, cl));
+        txtCantidad.setBorder(BorderFactory.createMatteBorder(0,0,1,0, cl));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setText("Precio:");
 
         txtPrecio.setBorder(BorderFactory.createMatteBorder(0,0,1,0, cl));
+        txtPrecio.setEditable(false);
 
         jPanel2.setBackground(new java.awt.Color(13, 177, 215));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Agregar");
+        jLabel5.setText("Ingresar Lote");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -103,6 +108,7 @@ public class Agregar extends javax.swing.JPanel {
         txtCodigo.setEditable(false);
 
         txtNombre.setBorder(BorderFactory.createMatteBorder(0,0,1,0, cl));
+        txtNombre.setEditable(false);
 
         jButton1.setBackground(new java.awt.Color(9, 67, 105));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -123,18 +129,20 @@ public class Agregar extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1)
-                    .addComponent(txtNombre)
-                    .addComponent(txtDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                    .addComponent(txtPrecio)
-                    .addComponent(txtCodigo)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                    .addComponent(txtCantidad)
+                    .addComponent(txtPrecio)
+                    .addComponent(txtCodigo)
+                    .addComponent(txtCaducidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(75, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -147,33 +155,40 @@ public class Agregar extends javax.swing.JPanel {
                 .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtCaducidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(jLabel3)
                 .addGap(18, 18, 18)
-                .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
                 .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel6)
-                .addGap(18, 18, 18)
-                .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 60, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         TiendaDAO tl = new TiendaDAO();
-        tl.crear(txtCodigo.getText(),txtNombre.getText(),
-                txtDescripcion.getText(),Float.parseFloat(txtPrecio.getText()));
-        //tl.crear_lote(txtCodigo.getText(),txtLote.getText(),txtCaducidad.getDate(),Integer.parseInt(txtCantidad.getText()));
-        generar_codigo();
-        txtNombre.setText("");
-        txtDescripcion.setText("");
-        txtPrecio.setText("");
+        //tl.modificar(txtCodigo.getText(),txtNombre.getText(),
+                //txtDescripcion.getText(),Float.parseFloat(txtPrecio.getText()),Integer.parseInt(txtCantidad.getText()));
+        tl.crear_lote(txtCodigo.getText(),"0",txtCaducidad.getDate(),Integer.parseInt(txtCantidad.getText()));
+        Inventario inv = new Inventario(panel_general,"Encargado");
+        inv.setSize(807,511);
+        inv.setLocation(0,0);
+        panel_general.removeAll();
+        panel_general.add(inv,BorderLayout.CENTER);
+        panel_general.revalidate();
+        panel_general.repaint();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -186,31 +201,26 @@ public class Agregar extends javax.swing.JPanel {
         panel_general.repaint();
     }//GEN-LAST:event_jButton2ActionPerformed
     
-    public void generar_codigo(){
-        String codigo = "";
-        Random rm = new Random();
-
-        int n1 = rm.nextInt(9);
-        int n2 = rm.nextInt(9);
-        int n3 = rm.nextInt(9);
-        int n4 = rm.nextInt(9);
-        int n5 = rm.nextInt(9);
-        int n6 = rm.nextInt(9);
-        codigo += "" + n1 + n2 + n3 + n4 + n5 + n6;
+    public void mostrar (String codigo,String nombre,String descripcion,float precio){ 
         txtCodigo.setText(codigo);
-    }
-
+        txtNombre.setText(nombre);
+        //txtCantidad.setText(cantidad+"");
+        //txtDescripcion.setText(descripcion+"");
+        txtPrecio.setText(precio+"");
+        }  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel2;
+    private com.toedter.calendar.JDateChooser txtCaducidad;
+    private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextField txtCodigo;
-    private javax.swing.JTextField txtDescripcion;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtPrecio;
     // End of variables declaration//GEN-END:variables

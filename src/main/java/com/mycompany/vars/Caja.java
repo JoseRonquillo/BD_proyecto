@@ -220,7 +220,7 @@ public class Caja extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        String ruta = tablageneral.getValueAt(tablageneral.getSelectedRow(), 4).toString();
+        String ruta = tablageneral.getValueAt(tablageneral.getSelectedRow(), 3).toString();
         System.out.println(ruta);
         File archivoPDF = new File(ruta);
         if (archivoPDF.exists()) {
@@ -245,16 +245,15 @@ public class Caja extends javax.swing.JPanel {
     
     public void Tabla(){
      ArrayList<Venta>datos=td.listar_ventas();
-     String titulos []={"Fecha","Productos","Total","Cliente","Recibo"};
+     String titulos []={"Fecha","Total","Cliente","Recibo"};
      tablamodelo = new DefaultTableModel(null,titulos);
      
      for(Venta general: datos){
      Object informacion []= new Object[5];
      informacion[0]=general.getFecha();
-     informacion[1]=general.getProductos();
-     informacion[2]=general.getTotal();
-     informacion[3]=general.getCliente();
-     informacion[4]=general.getRecivo();
+     informacion[1]=general.getTotal();
+     informacion[2]=general.getCliente();
+     informacion[3]=general.getRecivo();
      tablamodelo.addRow(informacion);
      }
      tablageneral.setModel(tablamodelo);
@@ -268,16 +267,15 @@ public class Caja extends javax.swing.JPanel {
      String fechaTexto = sdf.format(fecha);
      String sql = "SELECT * FROM ventas WHERE fecha = '"+fechaTexto+"';";
      ArrayList<Venta>datos=td.listar_busqueda_venta(sql);
-     String titulos []={"Fecha","Productos","Total","Cliente","Recibo"};
+     String titulos []={"Fecha","Total","Cliente","Recibo"};
      tablamodelo = new DefaultTableModel(null,titulos);
      
      for(Venta general: datos){
      Object informacion []= new Object[5];
      informacion[0]=general.getFecha();
-     informacion[1]=general.getProductos();
-     informacion[2]=general.getTotal();
-     informacion[3]=general.getCliente();
-     informacion[4]=general.getRecivo();
+     informacion[1]=general.getTotal();
+     informacion[2]=general.getCliente();
+     informacion[3]=general.getRecivo();
      tablamodelo.addRow(informacion);
      }
      tablageneral.setModel(tablamodelo);
@@ -290,7 +288,7 @@ public class Caja extends javax.swing.JPanel {
     int filas = tablageneral.getRowCount();
     float total = 0;
     for(int i = 0; i<filas;i++){
-    String tt = tablageneral.getValueAt(i, 2).toString();
+    String tt = tablageneral.getValueAt(i, 1).toString();
     float ttf = Float.parseFloat(tt);
     total += ttf;
     }

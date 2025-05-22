@@ -396,14 +396,13 @@ public class Vender extends javax.swing.JPanel {
          sql = "SELECT * FROM `productos` WHERE `nombre` LIKE '"+txtbuscar.getText()+"%';";
          datos = td.listar_busqueda(sql);
      }
-     String titulos []={"Codigo","Nombre","Cantidad"};
+     String titulos []={"Codigo","Nombre"};
      tablamodelo = new DefaultTableModel(null,titulos);
      
      for(producto general: datos){
      Object informacion []= new Object[3];
      informacion[0]=general.getCodigo();
      informacion[1]=general.getNombre();
-     informacion[2]=general.getCantidad();
      tablamodelo.addRow(informacion);
      }
      tablita.setModel(tablamodelo);
@@ -527,13 +526,29 @@ public class Vender extends javax.swing.JPanel {
         }
             String lista_pr = "";
             
+            int cantidadP = 0;
             for(Object pr: venta){
                 Object[] actual = (Object[]) pr;
+                String cod = actual[0].toString();
                 String name_pr = actual[1].toString();
+                Object precio = actual[2];
+                Object cantidad = actual[3];
+                total += ((Number)precio).floatValue() * (Integer)cantidad;
                 lista_pr += name_pr + ",";
-                
+                cantidadP += 1;
              }
-            td.crear_venta(lista_pr, total, cliente, ruta_final);
+            //lista_pr
+            System.out.println(cantidadP);
+            System.out.println(lista_pr);
+            int id_venta = td.crear_venta(total, cliente, ruta_final);
+            for(Object pr: venta){
+                Object[] actual = (Object[]) pr;
+                String cod = actual[0].toString();
+                String name_pr = actual[1].toString();
+                Object precio = actual[2];
+                Object cantidad = actual[3];
+                td.crear_detalle_venta_simple(id_venta, cod, (Integer)cantidad, ((Number)precio).floatValue());
+             }
             
         }catch(Exception e){
             

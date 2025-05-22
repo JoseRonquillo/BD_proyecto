@@ -182,7 +182,7 @@ public class Mod_caja extends javax.swing.JPanel {
         if(txtTipo.getSelectedItem().toString().equals("Resta")){
             monto = monto *-1;
         }
-        tl.crear_venta(txtMotivo.getText(), monto, "Encargado", "null");
+        tl.crear_venta( monto, "Encargado", "null");
         Caja cj = new Caja(panel_general,"Encargado");
         cj.setSize(807,511);
         cj.setLocation(0,0);
